@@ -1,0 +1,5 @@
+# dsh-task-digest bundle layer: installing this package adds the digest page.
+# Users override this row's config in their profile's cordis.patch.yml.
+- insert:
+    - id: task-digest
+      name: dsh-task-digest

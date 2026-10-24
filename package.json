@@ -1,0 +1,70 @@
+{
+  "name": "dsh-task-digest",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness plugin: a nightly per-task token, cost, and result digest for the previous day's Sessions",
+  "icon": "./icon.svg",
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "digest",
+    "report",
+    "token-cost",
+    "observability"
+  ],
+  "author": "nwasvsad",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nwasvsad/dsh-task-digest.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nwasvsad/dsh-task-digest/issues"
+  },
+  "homepage": "https://github.com/nwasvsad/dsh-task-digest#readme",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "files": [
+    "lib/index.js",
+    "lib/*.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "prepare": "node scripts/build-client.mjs",
+    "build": "node scripts/build-client.mjs",
+    "verify": "node scripts/verify.mjs",
+    "install:web": "node scripts/verify.mjs --apply",
+    "migrate": "node scripts/migrate-from-plan.mjs",
+    "test": "node test/run-all.mjs"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "dsh": ">=0.2.1-rc.2 <0.3.0"
+  }
+}
